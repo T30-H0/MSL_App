@@ -156,6 +156,7 @@ const defaultColors = {
   grayTextNoti: '#3F3F3F',
   bgGray: 'rgba(235, 236, 240, 0.6)',
   greysL3: '#7A7A9D',
+  superGreen:'#5c7c31',
 };
 
 export default defaultColors;
