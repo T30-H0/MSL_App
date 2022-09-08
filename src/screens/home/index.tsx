@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
+import Slider from '../../components/Slider'
 import WView from '../../components/WView'
 import { Colors } from '../../themes'
 
 const Home = () => {
   return (
     <WView style={styles.container}>
-      <WView style={styles.body} />
-      <WView style={styles.footer} />
+      <Slider />
     </WView>
   )
 }
@@ -17,7 +17,7 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.superGreen,
+    backgroundColor: Colors.blurBackground,
   },
   body: {
     flex: 3,

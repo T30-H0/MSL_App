@@ -29,7 +29,7 @@ function BottomTab() {
             focused: boolean
           }) => (
             <Image
-              source={Icon.icHouse}
+              source={focused ? Icon.icHomeFill : Icon.icHouse}
               style={{
                 width: size,
                 height: size,
@@ -37,6 +37,7 @@ function BottomTab() {
               }}
             />
           ),
+          headerShown: false,
         })}
       />
       <Tab.Screen
@@ -56,7 +57,7 @@ function BottomTab() {
             focused: boolean
           }) => (
             <Image
-              source={Icon.icChatsCircle}
+              source={focused ? Icon.icChatFill : Icon.icChatsCircle}
               style={{
                 width: size,
                 height: size,
@@ -64,9 +65,10 @@ function BottomTab() {
               }}
             />
           ),
+          headerShown: false,
         })}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name={'Cart'}
         component={CartTab}
         options={({ route }: { route: any }) => ({
@@ -91,6 +93,7 @@ function BottomTab() {
               }}
             />
           ),
+          headerShown: false,
         })}
       />
       <Tab.Screen
@@ -110,7 +113,7 @@ function BottomTab() {
             focused: boolean
           }) => (
             <Image
-              source={Icon.icMore}
+              source={focused ? Icon.icThreeDotFill : Icon.icMore}
               style={{
                 width: size,
                 height: size,
@@ -118,8 +121,9 @@ function BottomTab() {
               }}
             />
           ),
+          headerShown: false,
         })}
-      />*/}
+      />
     </Tab.Navigator>
   )
 }
