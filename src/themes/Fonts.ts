@@ -1,9 +1,9 @@
 export const type = {
-  semiBold: 'Muli-SemiBold',
-  bold: 'Muli-Bold',
-  medium: 'Muli-Medium',
-  regular: 'Muli-Regular',
-  light: 'Muli-Light',
+  semiBold: 'Mulish-SemiBold',
+  bold: 'Mulish-Bold',
+  medium: 'Mulish-Medium',
+  regular: 'Mulish-Regular',
+  light: 'Mulish-Light',
 };
 
 // export const size = {

@@ -30,8 +30,8 @@ const defaultColors = {
   tabBackground: 'white',
 
   // Global
-  primary: '#1197FF',
-  primaryBackground: '#FFEAFA',
+  primaryBackground: '#FAE6E3',
+  primary: "#D7475F",
   secondary: '#FF6F61',
   tertiary: '#F7F8F9',
   Postgraduate: '#DB147F',

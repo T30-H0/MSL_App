@@ -1,6 +1,6 @@
 import React from 'react'
 import { ImageBackground, StyleSheet, View } from 'react-native'
-import { Images } from '../themes'
+import { Colors, Images } from '../themes'
 import { SCREEN_WIDTH } from '../themes/Constants'
 import WText from './WText'
 
@@ -12,7 +12,9 @@ const Slider = () => {
         style={styles.imageBackground}
       />
       <View>
-        <WText>Year End Sale</WText>
+        <WText type="bold18" mTop={20}>
+          Year End Sale
+        </WText>
       </View>
     </View>
   )
@@ -27,5 +29,6 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH / 2,
     position: 'absolute',
+    backgroundColor: Colors.primary,
   },
 })

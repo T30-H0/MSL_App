@@ -1,7 +1,7 @@
-import React from 'react';
-import {StyleProp, StyleSheet, Text, TextProps, TextStyle} from 'react-native';
-import {Colors, Fonts} from '../themes';
-import {ExtendStyleProps} from './CoreType';
+import React from 'react'
+import { StyleProp, StyleSheet, Text, TextProps, TextStyle } from 'react-native'
+import { Colors, Fonts } from '../themes'
+import { ExtendStyleProps } from './CoreType'
 
 interface WTextProps extends TextProps, ExtendStyleProps {
   type?:
@@ -35,17 +35,17 @@ interface WTextProps extends TextProps, ExtendStyleProps {
     | 'bold18'
     | 'bold20'
     | 'bold24'
-    | 'bold10';
-  center?: boolean;
-  underLine?: boolean;
-  letterSpacing?: number;
-  style?: StyleProp<TextStyle>;
-  children?: React.ReactNode;
-  fill?: boolean;
-  lineHeight?: number;
-  w?: number | string;
-  h?: number | string;
-  textAlign?: 'auto' | 'center' | 'justify' | 'left' | 'right';
+    | 'bold10'
+  center?: boolean
+  underLine?: boolean
+  letterSpacing?: number
+  style?: StyleProp<TextStyle>
+  children?: React.ReactNode
+  fill?: boolean
+  lineHeight?: number
+  w?: number | string
+  h?: number | string
+  textAlign?: 'auto' | 'center' | 'justify' | 'left' | 'right'
 }
 
 const WText = React.forwardRef(
@@ -78,50 +78,51 @@ const WText = React.forwardRef(
       minW,
       maxH,
       maxW,
-      lineHeight,
+      lineHeight = 24,
       letterSpacing = 0.02,
       ...more
-    } = props;
+    } = props
     return (
       <Text
         style={[
           styles.normal,
           type && styles[type],
-          color && {color},
+          color && { color },
           center && styles.center,
           underLine && styles.txtUnderline,
-          mTop && {marginTop: mTop},
-          mBottom && {marginBottom: mBottom},
-          mLeft && {marginLeft: mLeft},
-          mRight && {marginRight: mRight},
-          mHoz && {marginHorizontal: mHoz},
-          mVer && {marginVertical: mVer},
-          pTop && {paddingTop: pTop},
-          pBottom && {paddingBottom: pBottom},
-          pLeft && {paddingLeft: pLeft},
-          pRight && {paddingRight: pRight},
-          pHoz && {paddingHorizontal: pHoz},
-          pVer && {paddingVertical: pVer},
+          mTop && { marginTop: mTop },
+          mBottom && { marginBottom: mBottom },
+          mLeft && { marginLeft: mLeft },
+          mRight && { marginRight: mRight },
+          mHoz && { marginHorizontal: mHoz },
+          mVer && { marginVertical: mVer },
+          pTop && { paddingTop: pTop },
+          pBottom && { paddingBottom: pBottom },
+          pLeft && { paddingLeft: pLeft },
+          pRight && { paddingRight: pRight },
+          pHoz && { paddingHorizontal: pHoz },
+          pVer && { paddingVertical: pVer },
           fill && styles.fill,
-          textAlign && {textAlign: textAlign},
-          lineHeight && {lineHeight: lineHeight},
-          w && {width: w},
-          h && {height: h},
-          minH && {minHeight: minH},
-          minW && {minWidth: minW},
-          maxH && {maxHeight: maxH},
-          maxW && {maxWidth: maxW},
-          letterSpacing && {letterSpacing: letterSpacing},
+          textAlign && { textAlign: textAlign },
+          lineHeight && { lineHeight: lineHeight },
+          w && { width: w },
+          h && { height: h },
+          minH && { minHeight: minH },
+          minW && { minWidth: minW },
+          maxH && { maxHeight: maxH },
+          maxW && { maxWidth: maxW },
+          letterSpacing && { letterSpacing: letterSpacing },
           style && style,
         ]}
         {...more}
         ref={ref}
-        onPress={onPress}>
+        onPress={onPress}
+      >
         {children}
       </Text>
-    );
+    )
   },
-);
+)
 
 export const styles: any = StyleSheet.create({
   fill: {
@@ -258,9 +259,9 @@ export const styles: any = StyleSheet.create({
     fontSize: normalize(Fonts.size.S24),
     fontFamily: Fonts.type.bold,
   },
-});
+})
 
-export default WText;
+export default WText
 
 export function normalize(size: number) {
   // const scale = Constants.SCREEN_WIDTH / Constants.BASE_WIDTH;
@@ -270,5 +271,5 @@ export function normalize(size: number) {
   // } else {
   //   return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
   // }
-  return size;
+  return size
 }
