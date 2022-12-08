@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef } from 'react'
 import {
   FlexAlignType,
   StyleProp,
@@ -6,16 +6,16 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   ViewStyle,
-} from 'react-native';
-import { ExtendStyleProps } from './CoreType';
+} from 'react-native'
+import { ExtendStyleProps } from './CoreType'
 
 interface WTouchableProps extends TouchableOpacityProps, ExtendStyleProps {
-  children?: React.ReactNode;
-  row?: boolean;
-  alignCenter?: boolean;
-  justifyCenter?: boolean;
-  center?: boolean;
-  style?: StyleProp<ViewStyle>;
+  children?: React.ReactNode
+  row?: boolean
+  alignCenter?: boolean
+  justifyCenter?: boolean
+  center?: boolean
+  style?: StyleProp<ViewStyle>
   justifyContent?:
     | 'center'
     | 'flex-start'
@@ -23,10 +23,10 @@ interface WTouchableProps extends TouchableOpacityProps, ExtendStyleProps {
     | 'space-between'
     | 'space-around'
     | 'space-evenly'
-    | undefined;
-  alignItems?: FlexAlignType;
-  alignSelf?: FlexAlignType;
-  hit?: number;
+    | undefined
+  alignItems?: FlexAlignType
+  alignSelf?: FlexAlignType
+  hit?: number
 }
 
 const WTouchableOpacity = forwardRef(
@@ -70,7 +70,7 @@ const WTouchableOpacity = forwardRef(
       activeOpacity,
       hit,
       ...more
-    } = props;
+    } = props
     return (
       <TouchableOpacity
         style={[
@@ -109,7 +109,12 @@ const WTouchableOpacity = forwardRef(
           },
           style && style,
         ]}
-        hitSlop={{ top: hit || 0, bottom: hit || 0, left: hit || 0, right: hit || 0 }}
+        hitSlop={{
+          top: hit || 10,
+          bottom: hit || 10,
+          left: hit || 10,
+          right: hit || 10,
+        }}
         onPress={onPress && onPress}
         disabled={disabled}
         activeOpacity={activeOpacity || 0.6}
@@ -118,9 +123,9 @@ const WTouchableOpacity = forwardRef(
       >
         {children}
       </TouchableOpacity>
-    );
+    )
   },
-);
+)
 
 const styles = StyleSheet.create({
   row: {
@@ -138,6 +143,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selfCenter: { alignSelf: 'center' },
-});
+})
 
-export default WTouchableOpacity;
+export default WTouchableOpacity

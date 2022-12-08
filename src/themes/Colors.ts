@@ -88,10 +88,10 @@ const defaultColors = {
   error: '#FB4E4E',
   grayDot: '#C4C4C4',
 
-  // netural colors
-  neturalBlack: '#161724',
-  neturalLightGrey: '#F2F2F2',
-  neturalGrey: '#D3CCCC',
+  // neutral colors
+  neuTralBlack: '#161724',
+  neuTralLightGrey: '#F2F2F2',
+  neuTralGrey: '#D3CCCC',
 
   // semantic colors
   semanticGreen: '#38D595',

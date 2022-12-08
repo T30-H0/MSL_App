@@ -13,7 +13,7 @@ function BottomTab() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name={'Home'}
+        name={'HOME'}
         component={HomeTab}
         options={({ route }: { route: any }) => ({
           tabBarLabel: ({ color }: { color: string }) => (
@@ -41,7 +41,7 @@ function BottomTab() {
         })}
       />
       <Tab.Screen
-        name={'Chat'}
+        name={'CHAT'}
         component={ChatTab}
         options={({ route }: { route: any }) => ({
           tabBarLabel: ({ color }: { color: string }) => (
@@ -69,7 +69,7 @@ function BottomTab() {
         })}
       />
       <Tab.Screen
-        name={'Cart'}
+        name={'CART'}
         component={CartTab}
         options={({ route }: { route: any }) => ({
           tabBarLabel: ({ color }: { color: string }) => (
@@ -97,7 +97,7 @@ function BottomTab() {
         })}
       />
       <Tab.Screen
-        name={'More'}
+        name={'MORE'}
         component={MoreTab}
         options={({ route }: { route: any }) => ({
           tabBarLabel: ({ color }: { color: string }) => (
