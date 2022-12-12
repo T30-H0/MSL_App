@@ -39,6 +39,35 @@ export const correctURL = (string: string) => {
   return url;
 };
 
+export const removeExtraSpaces = (str: string) => {
+  return str?.replace(/\s+/g, ' ');
+};
+
+
+export const formatCurrency =(value: number)=> {
+  if (typeof value === 'number') {
+    const parts = value.toFixed(2).split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return `$${parts.join('.')}`;
+  }
+
+  return '$0.00';
+}
+
+export const formatCurrencyWithoutSymbol = (value: number, isCurrency = true) => {
+  const style = isCurrency ? '$' : '';
+  const parts = value?.toString().split('.');
+  if (parts.length === 1) {
+    if (`${value?.toString()}`?.endsWith('.')) {
+      return `${style}${parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.`;
+    }
+    return `${style}${parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+  } else {
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return `${style}${parts.join('.')}`;
+  }
+};
+
 export const securityEmail = (email: string) => {
   if (!email) {
     return '';
@@ -76,3 +105,27 @@ export const change_alias = (alias: string) => {
   str = str.replace(/^\-+|\-+$/g, '');
   return str;
 };
+
+const getAddressComponentValueByKey = (addressComponents: any, key: string, valueType = 'long_name') => {
+  const addressComponent = addressComponents?.find((item: any) => item.types?.[0] === key);
+  return addressComponent?.[valueType] || null;
+};
+
+const parseGooglePlace = (data: any, details: any) => {
+  const addressComponents = details?.address_components;
+  return {
+    address: data?.structured_formatting?.main_text || data?.description || null,
+    suburb:
+      getAddressComponentValueByKey(addressComponents, 'locality') ||
+      getAddressComponentValueByKey(addressComponents, 'colloquial_area'),
+    state: getAddressComponentValueByKey(
+      addressComponents,
+      'administrative_area_level_1',
+      'short_name',
+    ),
+    postCode: getAddressComponentValueByKey(addressComponents, 'postal_code') || null,
+    geolocation: details?.geometry?.location || null,
+  };
+};
+
+export default parseGooglePlace;
