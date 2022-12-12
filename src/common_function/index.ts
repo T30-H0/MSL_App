@@ -129,3 +129,18 @@ const parseGooglePlace = (data: any, details: any) => {
 };
 
 export default parseGooglePlace;
+
+
+export const parseYoutubeId = (url: string) => {
+  try {
+    if (!isEmpty(url) && typeof url === 'string') {
+      const parse_id = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+      const videoId =
+        parse_id[2] !== undefined ? parse_id[2].split(/[^0-9a-z_\-]/i)[0] : parse_id[0];
+      return videoId || null;
+    }
+    return null;
+  } catch (_error) {
+    return null;
+  }
+};
